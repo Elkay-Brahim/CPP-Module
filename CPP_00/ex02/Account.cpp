@@ -6,12 +6,12 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 19:26:03 by bchifour          #+#    #+#             */
-/*   Updated: 2023/05/25 21:48:46 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/06/11 00:47:30 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Account.hpp"
 #include <iostream>
+#include "Account.hpp"
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;

@@ -6,49 +6,33 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:22:49 by bchifour          #+#    #+#             */
-/*   Updated: 2023/05/25 21:48:13 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/06/11 01:19:27 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-
-class Contact
+PhoneBook:: PhoneBook()
 {
-	private:
-		std::string first_name;
-    	std::string last_name;
-    	std::string nickname;
-    	std::string phone_number;
-		std::string darkest_secret;
-	public:
-		Contact() {}		
-		Contact(const std::string& fname, const std::string& lname, const std::string& nn, const std::string& phone, const std::string& secret)
-		    : first_name(fname), last_name(lname), nickname(nn), phone_number(phone), darkest_secret(secret) {}
+	contact_count = 0;
+}
 
-	const std::string& getFirstName() const;
-    const std::string& getLastName() const;
-    const std::string& getNickname() const;
-    const std::string& getPhoneNumber() const;
-	const std::string& getDarkestSecret() const;
-};
-
-class PhoneBook
+Contact:: Contact()
 {
-	private:
-	    Contact contacts[8];
-	    int contact_count;
 	
-	public:
-		PhoneBook() : contact_count(0), contacts(){}
-	
-	void addContact(const Contact& contact);
-	void searchContact();
-	void run();
-};
+}
+Contact:: Contact(const std::string& fname, const std::string& lname, const std::string& nn, const std::string& phone, const std::string& secret)
+{
+	first_name = fname;
+	last_name = lname;
+	nickname = nn;
+	phone_number = phone;
+	darkest_secret = secret;
+}
 
-// geters
 const std::string& Contact:: getFirstName() const
 {
 	return (first_name);
@@ -125,19 +109,27 @@ void PhoneBook:: searchContact()
 		i++;
 	}
     std::cout << "Enter the index of the contact to display: ";
-    std::cin >> index;
-	if (index >= 0 && index < contact_count)
+    if (std::cin >> index)
 	{
-		const Contact& contact = contacts[index];
-		std::cout << "Contact Information:" << std::endl;
-        std::cout << "First Name: " << contact.getFirstName() << std::endl;
-        std::cout << "Last Name: " << contact.getLastName() << std::endl;
-        std::cout << "Nickname: " << contact.getNickname() << std::endl;
-        std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-        std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+		if (index >= 0 && index < contact_count)
+		{
+			const Contact& contact = contacts[index];
+			std::cout << "Contact Information:" << std::endl;
+			std::cout << "First Name: " << contact.getFirstName() << std::endl;
+			std::cout << "Last Name: " << contact.getLastName() << std::endl;
+			std::cout << "Nickname: " << contact.getNickname() << std::endl;
+			std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
+			std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+		}
+		else
+			std::cout << "Invalid index." << std::endl;
 	}
 	else
-		std::cout << "Invalid index." << std::endl;
+	{
+		std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter a valid integer." << std::endl;
+	}
 	
 }
 void PhoneBook:: run()
@@ -173,7 +165,7 @@ void PhoneBook:: run()
 		else if (command == "SEARCH")
 			searchContact();
 		else if (command == "EXIT")
-			break ;
+			break;
 		else
 			std::cout << "Invalid command." << std::endl;
 	}
