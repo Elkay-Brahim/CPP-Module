@@ -1,10 +1,10 @@
-SRC = main.cpp newZombie.cpp randomChomp.cpp Zombie.cpp
-NAME = Zombie.out
+SRC = main.cpp Fixed.cpp
+NAME = Fixed
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp 
+%.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

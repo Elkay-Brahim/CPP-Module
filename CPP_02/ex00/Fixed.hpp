@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 00:05:48 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/07 15:00:15 by bchifour         ###   ########.fr       */
+/*   Created: 2023/07/21 11:45:32 by bchifour          #+#    #+#             */
+/*   Updated: 2023/08/07 14:58:18 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
+#ifndef __FIXED_H__
+#define __FIXED_H__
 
-int main( void ) 
+#include <iostream>
+
+class Fixed
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+	private:
+		int value;
+		static const int fractional = 8;
+	public:
+		Fixed();
+		Fixed(const Fixed& _new);
+		Fixed& operator=(const Fixed& _new);
+		~Fixed();
+		int getRawBits( void ) const;
+		void setRawBits( int const _new );
+};
+
+#endif
