@@ -1,5 +1,5 @@
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
-NAME = ex03.out
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+NAME = ScavTrap
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
