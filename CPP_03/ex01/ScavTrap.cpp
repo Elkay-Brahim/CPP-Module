@@ -6,20 +6,19 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:12:08 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/17 10:51:45 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:56:04 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-// #include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name)
 {
-	this->name = name;
+	SetName(name);
 	SetHit_points(100);
 	SetEnergy_points(50);
 	SetAttack_damage(20);
-	std::cout << "ScavTrap constructor called of  " << this->name << std::endl;
+	std::cout << "ScavTrap constructor called of  " << GetName() << std::endl;
 }
 
 void ScavTrap:: guardGate()
@@ -29,47 +28,50 @@ void ScavTrap:: guardGate()
 
 void ScavTrap:: attack(const std::string& target)
 {
-	if (Energy_points > 0 && Hit_points > 0)
+	unsigned int i;
+	i = 0;
+	if (GetEnergy_points() > 0 && GetHit_points() > 0)
 	{
-		std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << Attack_damage << " points of damage!" << std::endl;
-		Energy_points--;
+		std::cout << "ScavTrap " << GetName() << " attacks " << target << ", causing " << GetAttack_damage() << " points of damage!" << std::endl;
+		i = GetEnergy_points();
+		i--;
+		SetEnergy_points(i);
 	}
-	else if (this->Energy_points == 0)
-		std::cout << this->name  << " ScavTrap can't attack to " << target << " because out of energy! \n";
+	else if (GetEnergy_points() == 0)
+		std::cout << GetName()  << " ScavTrap can't attack to " << target << " because out of energy! \n";
 	else
-		std::cout << this->name  << " ScavTrap can't attack because is dead! \n";
+		std::cout << GetName()  << " ScavTrap can't attack because is dead! \n";
 }
 
 ScavTrap::ScavTrap()
 {
-	this->name = "default";
+	SetName("default");
 	SetHit_points(100);
 	SetEnergy_points(50);
 	SetAttack_damage(20);
-	std::cout << "ScavTrap created " << this->name << std::endl;
+	std::cout << "ScavTrap created " << GetName() << std::endl;
 }
 
-ScavTrap:: ScavTrap(const ScavTrap &trap) : ClapTrap()
+ScavTrap:: ScavTrap(const ScavTrap &trap)
 {
-	this->name = trap.name;
-	this->Energy_points = trap.Energy_points;
-	this->Hit_points = trap.Hit_points;
-	this->Attack_damage = trap.Attack_damage;
-	std::cout << this->name << "ScavTrap copy created" << std::endl;
+	SetName(trap.GetName());
+	SetHit_points(trap.GetHit_points());
+	SetEnergy_points(trap.GetEnergy_points());
+	SetAttack_damage(trap.GetAttack_damage());
+	std::cout << GetName() << "ScavTrap copy created" << std::endl;
 }
 
 ScavTrap &ScavTrap:: operator = (const ScavTrap &trap)
 {
 	std::cout << "Copy assignment operator called of ScavTrap " << std:: endl;
-	this->name = trap.name;
-	this->Attack_damage = trap.Attack_damage;
-	this->Energy_points = trap.Energy_points;
-	this->Hit_points = trap.Hit_points;
+	SetName(trap.GetName());
+	SetHit_points(trap.GetHit_points());
+	SetEnergy_points(trap.GetEnergy_points());
+	SetAttack_damage(trap.GetAttack_damage());
 	return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called of  " << name << std::endl;
-	
+	std::cout << "ScavTrap destructor called of  " << GetName() << std::endl;
 }

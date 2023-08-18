@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:13:58 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/15 13:22:03 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:53:13 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,9 @@ class  ClapTrap
 		void SetHit_points(int new_Value);
 		void SetEnergy_points(int new_Value);
 		void SetAttack_damage(int new_Value);
+		void SetName(std::string name);
+		std::string GetName(void) const;
+		unsigned int GetEnergy_points(void)const;
+		unsigned int GetAttack_damage(void)const;
+		unsigned int GetHit_points(void)const;
 };

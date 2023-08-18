@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 13:15:29 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/15 13:22:43 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:17:54 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap()
 ClapTrap:: ClapTrap(const ClapTrap &trap)
 {
 	std::cout << this->name << "ClapTrap copy created" << std::endl;
-	this->name = trap.name;  //check;
+	this->name = trap.name; 
 	SetHit_points(trap.Hit_points);
 	SetEnergy_points(trap.Energy_points);
 	SetAttack_damage(trap.Attack_damage);
@@ -60,6 +60,31 @@ void ClapTrap::SetHit_points(int new_Value)
 void ClapTrap::SetAttack_damage(int new_Value)
 {
 	Attack_damage = new_Value;
+}
+
+void ClapTrap::SetName(std::string name)
+{
+	this->name = name;
+}
+
+std::string ClapTrap::GetName(void)const
+{
+	return name;
+}
+
+unsigned int ClapTrap::GetEnergy_points(void)const
+{
+	return Energy_points;
+}
+
+unsigned int ClapTrap::GetAttack_damage(void)const
+{
+	return Attack_damage;
+}
+
+unsigned int ClapTrap::GetHit_points(void)const
+{
+	return Hit_points;
 }
 
 void ClapTrap::SetEnergy_points(int new_Value)
