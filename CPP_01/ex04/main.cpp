@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:32:03 by bchifour          #+#    #+#             */
-/*   Updated: 2023/06/17 17:04:24 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:59:22 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int ac, char **av)
 	{
 		std::string fileName = av[1];
 		std::string s1 = av[2];
+		std::string s2 = av[3];
 		std::string fill = av[1];
 		fill = fill.substr(0, fill.length())+".replace";
 		std::ifstream inputFile(fileName);
@@ -32,11 +33,12 @@ int main(int ac, char **av)
 			{
 				while(1)
 				{
-					foundPosition = line.find(s1);
+					foundPosition = line.find(s1, foundPosition);
 					if (foundPosition != std::string::npos)
 					{
 						line.erase(foundPosition, s1.length());
 						line.insert(foundPosition, av[3]);
+						
 					}
 					else
 						break ;

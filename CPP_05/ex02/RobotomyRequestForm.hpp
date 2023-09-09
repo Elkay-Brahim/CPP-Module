@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   • RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 16:22:23 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/22 19:40:41 by bchifour         ###   ########.fr       */
+/*   Created: 2023/09/09 11:44:48 by bchifour          #+#    #+#             */
+/*   Updated: 2023/09/09 12:30:21 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "ICharacter.hpp"
+#include <iostream>
+#include "Form.hpp"
 
-class Character : public ICharacter
+
+class RobotomyRequestForm : public Form
 {
 	private:
-		std::string _name;
-		AMateria *_inventory[4];
-		int _count;
+		std::string const	target;
 	public:
-		Character(std::string const & name);
-		Character(Character const & copy);
-		Character & operator=(Character const & assign);
-		~Character();
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string const target);
+		RobotomyRequestForm(RobotomyRequestForm const &copy);
+		~RobotomyRequestForm();
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &assign);
+		std::string const	getTarget() const;
+		void				execute(Bureaucrat const &executor) const;
 };

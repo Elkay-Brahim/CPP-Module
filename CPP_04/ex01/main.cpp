@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 13:06:33 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/21 12:23:57 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:42:15 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ delete i;
 delete wrong_i;
 delete wrong_meta;
 
-Animal *prince = new Animal[6];
+Animal *prince =  Animal[6];
 int k = 0;
 while (k++ < 6)
 {

@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:33:01 by bchifour          #+#    #+#             */
-/*   Updated: 2023/08/22 16:35:56 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/04 20:18:54 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ Character::Character(std::string const & name) : _name(name), _count(0)
 
 Character::Character(Character const & copy)
 {
-	*this = copy;
+
+	*this = operator=(copy);
+
 }
 
 Character & Character::operator=(Character const & assign)
@@ -48,7 +50,7 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	if (this->_count < 4)
+	if (this->_count < 4 && m != NULL && this->_inventory[this->_count] == NULL)
 	{
 		this->_inventory[this->_count] = m;
 		this->_count++;
@@ -57,7 +59,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && _count > idx && this->_inventory[idx] != NULL)
 	{
 		this->_inventory[idx] = NULL;
 		this->_count--;
@@ -66,6 +68,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4	&& this->_inventory[idx] != NULL)
 		this->_inventory[idx]->use(target);
 }
