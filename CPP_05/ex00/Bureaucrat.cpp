@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:54:44 by bchifour          #+#    #+#             */
-/*   Updated: 2023/09/08 12:36:08 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:55:03 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
+	throw Bureaucrat::GradeTooLowException();
 	return ("Grade too low");
 }
 

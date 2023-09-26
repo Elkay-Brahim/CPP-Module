@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:33:01 by bchifour          #+#    #+#             */
-/*   Updated: 2023/09/04 20:18:54 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/24 12:56:24 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 Character::Character(std::string const & name) : _name(name), _count(0)
 {
+	std::cout << "Default constructor\n";
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
 Character::Character(Character const & copy)
 {
-
+	std::cout << "Copy constructor\n";
 	*this = operator=(copy);
 
 }
@@ -31,7 +32,7 @@ Character & Character::operator=(Character const & assign)
 	{
 		this->_name = assign._name;
 		for (int i = 0; i < 4; i++)
-			this->_inventory[i] = assign._inventory[i];
+			*this->_inventory[i] = *assign._inventory[i];
 		this->_count = assign._count;
 	}
 	return (*this);

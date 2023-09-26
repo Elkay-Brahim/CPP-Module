@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:49:53 by bchifour          #+#    #+#             */
-/*   Updated: 2023/09/06 12:54:25 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/24 13:01:41 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int main()
 	// delete src;
 	
 	// return 0;
-	Character h("h");
+	// Character lol("lol");
+	// Character xd("ice")
+	// Character h("h");
 }

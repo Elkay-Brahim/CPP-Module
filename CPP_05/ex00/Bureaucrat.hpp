@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 20:21:41 by bchifour          #+#    #+#             */
-/*   Updated: 2023/09/08 13:18:41 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:54:04 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ class Bureaucrat
 		
 	
 };
+
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);

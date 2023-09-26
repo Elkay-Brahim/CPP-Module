@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:08:06 by bchifour          #+#    #+#             */
-/*   Updated: 2023/09/12 20:09:03 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:42:29 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ void ScalarConverter::toDouble()
 	char *end;
 	d = strtod(this->_str.c_str(), &end);
 	if(this->check == false)
-		throw ScalarConverter::ImpossibleException();
+		throw ScalarConverter::ImpossibleException(); 
 	if (this->_str.length() > 11)
 		throw ScalarConverter::ImpossibleException();
 	if (this->_str.length() == 1 && !isdigit(this->_str[0]))
