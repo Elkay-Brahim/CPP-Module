@@ -6,7 +6,7 @@
 /*   By: bchifour <bchifour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:21:43 by bchifour          #+#    #+#             */
-/*   Updated: 2023/10/06 17:13:17 by bchifour         ###   ########.fr       */
+/*   Updated: 2023/10/06 19:28:17 by bchifour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void parse (std::string file)
 		line =_rplace(line, " ");
 		line =_rplace(line, "\t");
 		try{
-			if (line != "date,exchange_rate")
+			if (line != "date,exchange_rate" || line.empty())
 				throw "There's a problem in the header of the csv file.\n";
 		}
 		catch(const char *e){
-			std::cout << *e << std::endl;
+			std::cout << e << std::endl;
 		}
 		while (std::getline(dataFile, line))
 		{
@@ -110,11 +110,11 @@ void parse (std::string file)
 		line =_rplace(line, " ");
 		line =_rplace(line, "\t");
 		try{
-			if (line != "date|value")
+			if (line != "date|value" || line.empty())
 				throw "There's a problem in the header of the input file.\n";
 		}
 		catch(const char *e){
-			std::cout << *e << std::endl;
+			std::cout << e << std::endl;
 		}
 		while(std::getline(inputFile, line) && i++)
 		{
